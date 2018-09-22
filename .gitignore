@@ -1,8 +1,11 @@
 .env
 .idea
+
+
+# folders
 html/*
 nginx/sites-enabled/*
-
+ssl/*.pem
 
 !.gitignore
 !.gitkeep
