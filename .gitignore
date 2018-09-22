@@ -1,6 +1,7 @@
 .env
 .idea
-
+html/*
+nginx/sites-enabled/*
 
 
 !.gitignore

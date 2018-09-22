@@ -5,9 +5,14 @@ services:
   wordpress:
     image: wordpress
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
     ports:
       - 9000:80
-    user: "$UID:$UID"
+    user: "${UID}:${GID}"
     volumes:
       - ./html:/var/www/html
     environment:
@@ -36,3 +41,8 @@ services:
         max-size: "20m"
         max-file: "3"
     volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled/
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    depends_on:
+      - wordpress
