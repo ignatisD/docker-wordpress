@@ -1,5 +1,9 @@
 version: '3.1'
 
+volumes:
+  mysql: {}
+  rainloop: {}
+
 services:
 
   wordpress:
@@ -11,8 +15,7 @@ services:
         max-size: "20m"
         max-file: "3"
     ports:
-      - 9000:80
-    user: "${UID}:${GID}"
+      - ${WP_PORTS:-80}
     volumes:
       - ./html:/var/www/html
     environment:
@@ -23,18 +26,14 @@ services:
       WORDPRESS_CONFIG_EXTRA: |
         /* Multisite */
         define('WP_ALLOW_MULTISITE', true );
-        define('MULTISITE', true);
-        define('SUBDOMAIN_INSTALL', false);
-        define('DOMAIN_CURRENT_SITE', 'localhost'); // TODO: change to actual domain when deploying
-        define('PATH_CURRENT_SITE', '/');
-        define('SITE_ID_CURRENT_SITE', 1);
-        define('BLOG_ID_CURRENT_SITE', 1);
 
+###############################################################
   nginx:
     image: nginx:1.14
     ports:
       - "80:80"
       - "443:443"
+      - "10080"
     logging:
       driver: "json-file"
       options:
@@ -44,5 +43,51 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/sites-enabled:/etc/nginx/sites-enabled/
       - ./nginx/conf.d:/etc/nginx/conf.d/
-    depends_on:
-      - wordpress
+
+###############################################################
+  mysql:
+    image: mysql:8.0.12
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - ${MYSQL_PORTS:-3306}
+
+###############################################################
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_ABSOLUTE_URI=${PHP_MY_ADMIN_URI}
+    restart: always
+    ports:
+      - ${PHPMYADMIN_PORTS:-80}
+    volumes:
+      - /sessions
+
+###############################################################
+  rainloop:
+    image: hardware/rainloop
+    container_name: rainloop
+    ports:
+      - ${RAINLOOP_PORTS:-8888}
+    volumes:
+      - rainloop:/rainloop/data
+
+###############################################################
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - ${MAILHOG_SERVER_PORTS:-1025}
+      - ${MAILHOG_CLIENT_PORTS:-8025:8025}
