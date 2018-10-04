@@ -20,11 +20,15 @@ Wordpress needs MySQL to work. Everything else is optional and depends on your n
 -------------
 To use nginx you need to copy the configurations in `nginx/sites-available/` into `nginx/sites-enabled` and edit them to suit your needs.
 
+-------------
+You can use the provided `menu.sh` for common docker commands.
+
+![Docker Menu](menu.gif)
+
 
 ### TODO
 
 - Start up scripts
-- menu.sh
 - nginx auto configuration
 
 That's it for now! 

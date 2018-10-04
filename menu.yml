@@ -1,0 +1,173 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/iggi/projects/wordpress
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 100
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 45
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Wordpress menu
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 15
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 453
+    content: "\e]0;iggi@iggi-laptop:~/projects/wordpress\a\e]7;file://iggi-laptop/home/iggi/projects/wordpress\a\e]0;iggi@iggi-laptop: ~/projects/wordpress\a\e[01;32miggi@iggi-laptop\e[00m:\e[01;34m~/projects/wordpress\e[00m$ "
+  - delay: 477
+    content: .
+  - delay: 283
+    content: /
+  - delay: 736
+    content: m
+  - delay: 188
+    content: e
+  - delay: 148
+    content: 'n'
+  - delay: 220
+    content: u
+  - delay: 711
+    content: .
+  - delay: 152
+    content: s
+  - delay: 140
+    content: h
+  - delay: 160
+    content: "\r\n"
+  - delay: 13
+    content: "\e[3J\e[H\e[2J===============================\r\n===   Wordpress and tools   ===\r\n===============================\r\nPress [q] to quit this menu\r\n\r\n1. Start WordPress & MySQL\r\n2. Start WordPress container\r\n3. Start NGiNX container\r\n4. Start MailHog container\r\n5. Start phpMyAdmin container\r\n6. Start RainLoop container\r\n7. Start MySQL container\r\n8. Stop all containers on host\r\n9. Docker container list (ps)\r\n10. Stop all project containers\r\n11. Stop MySQL & WordPress\r\n12. Stop WordPress container\r\n13. Stop NGiNX container\r\n14. Stop MailHog container\r\n15. Stop phpMyAdmin container\r\n16. Stop RainLoop container\r\n17. Stop MySQL container\r\n0. Hot reload nginx configuration\r\n\r\nSelect a number or type a command: "
+  - delay: 1225
+    content: '1'
+  - delay: 136
+    content: "\r\n"
+  - delay: 478
+    content: "\e[33mWARNING\e[0m: The Docker Engine you're using is running in swarm mode.\r\n\r\nCompose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.\r\n\r\nTo deploy your application across the swarm, use `docker stack deploy`.\r\n\r\nCreating network \"wordpress_default\" with the default driver\r\n"
+  - delay: 190
+    content: "Creating wordpress_wordpress_1 ... \r\r\n"
+  - delay: 14
+    content: "Creating wordpress_mysql_1     ... \r\r\n"
+  - delay: 1801
+    content: "\e[2A\e[2K\rCreating wordpress_wordpress_1 ... \e[32mdone\e[0m\r\e[2B"
+  - delay: 988
+    content: "\e[1A\e[2K\rCreating wordpress_mysql_1     ... \e[32mdone\e[0m\r\e[1B"
+  - delay: 41
+    content: Continue to menu...
+  - delay: 1755
+    content: "\r\n\e[3J\e[H\e[2J===============================\r\n===   Wordpress and tools   ===\r\n===============================\r\nPress [q] to quit this menu\r\n\r\n1. Start WordPress & MySQL\r\n2. Start WordPress container\r\n3. Start NGiNX container\r\n4. Start MailHog container\r\n5. Start phpMyAdmin container\r\n6. Start RainLoop container\r\n7. Start MySQL container\r\n8. Stop all containers on host\r\n9. Docker container list (ps)\r\n10. Stop all project containers\r\n11. Stop MySQL & WordPress\r\n12. Stop WordPress container\r\n13. Stop NGiNX container\r\n14. Stop MailHog container\r\n15. Stop phpMyAdmin container\r\n16. Stop RainLoop container\r\n17. Stop MySQL container\r\n0. Hot reload nginx configuration\r\n\r\nSelect a number or type a command: "
+  - delay: 739
+    content: '9'
+  - delay: 401
+    content: "\r\n"
+  - delay: 481
+    content: "        Name                       Command               State                 Ports               \r\n---------------------------------------------------------------------------------------------------\r\nwordpress_mysql_1       docker-entrypoint.sh mysqld      Up      0.0.0.0:32769->3306/tcp, 33060/tcp\r\nwordpress_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080->80/tcp              \r\n"
+  - delay: 37
+    content: Continue to menu...
+  - delay: 4482
+    content: "\r\n\e[3J\e[H\e[2J===============================\r\n===   Wordpress and tools   ===\r\n===============================\r\nPress [q] to quit this menu\r\n\r\n1. Start WordPress & MySQL\r\n2. Start WordPress container\r\n3. Start NGiNX container\r\n4. Start MailHog container\r\n5. Start phpMyAdmin container\r\n6. Start RainLoop container\r\n7. Start MySQL container\r\n8. Stop all containers on host\r\n9. Docker container list (ps)\r\n10. Stop all project containers\r\n11. Stop MySQL & WordPress\r\n12. Stop WordPress container\r\n13. Stop NGiNX container\r\n14. Stop MailHog container\r\n15. Stop phpMyAdmin container\r\n16. Stop RainLoop container\r\n17. Stop MySQL container\r\n0. Hot reload nginx configuration\r\n\r\nSelect a number or type a command: "
+  - delay: 4651
+    content: q
+  - delay: 268
+    content: "\r\n"
+  - delay: 10
+    content: "\e]0;iggi@iggi-laptop:~/projects/wordpress\a\e]7;file://iggi-laptop/home/iggi/projects/wordpress\a\e]0;iggi@iggi-laptop: ~/projects/wordpress\a\e[01;32miggi@iggi-laptop\e[00m:\e[01;34m~/projects/wordpress\e[00m$ "
+  - delay: 900
+    content: "logout\r\n"
