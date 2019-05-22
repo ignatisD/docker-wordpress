@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.7'
 
 volumes:
   mysql_data: {}
@@ -17,7 +17,7 @@ services:
     ports:
       - ${WP_PORTS:-80}
     volumes:
-      - ./html:/var/www/html
+      - ${WORDPRESS_LOCATION:-./html}:/var/www/html
     environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
