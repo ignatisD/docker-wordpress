@@ -7,7 +7,7 @@ volumes:
 services:
 
   wordpress:
-    image: wordpress:latest
+    image: ignatisd/wordpress:5.2.3_php7.2-apache
     restart: always
     logging:
       driver: "json-file"
